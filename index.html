@@ -2,27 +2,82 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChillSpots</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HighZone</title>
+  <link rel="stylesheet" href="styles.css"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <div class="logo">🌿 ChillSpots</div>
-    <button id="filterButton">Filtro ⭐</button>
+    <div class="logo">🍃 HighZone</div>
+    <nav>
+      <button id="loginButton">Iniciar Sesión</button>
+      <button id="registerButton">Registrarse</button>
+      <button id="filterButton">Filtrar ⭐</button>
+    </nav>
   </header>
-  <div id="map"></div>
 
-  <!-- Formulario emergente -->
-  <div id="modal" class="modal">
+  <!-- Layout Principal -->
+  <main>
+    <!-- Panel Izquierdo -->
+    <aside id="leftPanel">
+      <div id="userPanel">
+        <h2>Bienvenido</h2>
+        <p>Inicia sesión para crear y seguir spots.</p>
+      </div>
+    </aside>
+
+    <!-- Mapa Central -->
+    <section id="mapSection">
+      <div id="map"></div>
+    </section>
+
+    <!-- Panel Derecho -->
+    <aside id="rightPanel">
+      <h2>🔥 Trending Spots</h2>
+      <ul id="trendingList">
+        <li>Ningún spot trending aún</li>
+      </ul>
+    </aside>
+  </main>
+
+  <!-- Modal Login -->
+  <div id="loginModal" class="modal">
     <div class="modal-content">
-      <span id="closeModal" class="close">&times;</span>
-      <h2>Añadir un nuevo spot</h2>
+      <span class="close" data-close="loginModal">&times;</span>
+      <h2>Iniciar Sesión</h2>
+      <form id="loginForm">
+        <input type="text" id="loginUsername" placeholder="Usuario" required/>
+        <input type="password" id="loginPassword" placeholder="Contraseña" required/>
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Registro -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" data-close="registerModal">&times;</span>
+      <h2>Registrarse</h2>
+      <form id="registerForm">
+        <input type="text" id="registerUsername" placeholder="Usuario" required/>
+        <input type="password" id="registerPassword" placeholder="Contraseña" required/>
+        <input type="file" id="registerAvatar" accept="image/*"/>
+        <button type="submit">Crear Cuenta</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Nuevo Spot -->
+  <div id="spotModal" class="modal">
+    <div class="modal-content">
+      <span class="close" data-close="spotModal">&times;</span>
+      <h2>Añadir Nuevo Spot</h2>
       <form id="spotForm">
-        <input type="text" id="spotName" placeholder="Nombre del spot" required />
+        <input type="text" id="spotName" placeholder="Nombre del spot" required/>
         <textarea id="spotDescription" placeholder="Descripción" required></textarea>
-        <input type="file" id="spotImage" accept="image/*" />
+        <input type="file" id="spotImage" accept="image/*"/>
         <label for="spotRating">Valoración:</label>
         <select id="spotRating">
           <option value="1">1 ⭐</option>

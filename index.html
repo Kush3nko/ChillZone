@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChillSpots</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">🌿 ChillSpots</div>
+    <button id="filterButton">Filtro ⭐</button>
+  </header>
+  <div id="map"></div>
+
+  <!-- Formulario emergente -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2>Añadir un nuevo spot</h2>
+      <form id="spotForm">
+        <input type="text" id="spotName" placeholder="Nombre del spot" required />
+        <textarea id="spotDescription" placeholder="Descripción" required></textarea>
+        <input type="file" id="spotImage" accept="image/*" />
+        <label for="spotRating">Valoración:</label>
+        <select id="spotRating">
+          <option value="1">1 ⭐</option>
+          <option value="2">2 ⭐⭐</option>
+          <option value="3">3 ⭐⭐⭐</option>
+          <option value="4">4 ⭐⭐⭐⭐</option>
+          <option value="5">5 ⭐⭐⭐⭐⭐</option>
+        </select>
+        <button type="submit">Guardar Spot</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
